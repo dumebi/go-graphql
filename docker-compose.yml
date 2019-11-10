@@ -1,0 +1,18 @@
+version: '3'
+services:
+  postgresql:
+    restart: always
+    image: "postgres"
+    container_name: "postgres"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=go_graphql_db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./external/postgresql:/var/lib/postgresql/
+
+networks:
+  go-graphql:
+    driver: bridge
